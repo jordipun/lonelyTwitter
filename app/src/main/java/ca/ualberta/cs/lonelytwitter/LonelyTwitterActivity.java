@@ -172,6 +172,7 @@ public class LonelyTwitterActivity extends Activity {
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
+
     @Override
     protected void onStart() {
         // TODO Auto-generated method stub
@@ -179,8 +180,7 @@ public class LonelyTwitterActivity extends Activity {
 
         loadFromFile();
         //String[] tweets = loadFromFile();
-        adapter = new ArrayAdapter<Tweet>(this,
-                R.layout.list_item, tweetList);
+        adapter = new ArrayAdapter<Tweet>(this, R.layout.list_item, tweetList);
         oldTweetsList.setAdapter(adapter);
     }
 
