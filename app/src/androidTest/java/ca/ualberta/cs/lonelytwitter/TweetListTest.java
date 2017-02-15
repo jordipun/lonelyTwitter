@@ -2,6 +2,10 @@ package ca.ualberta.cs.lonelytwitter;
 
 import android.test.ActivityInstrumentationTestCase2;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
+
 /**
  * Created by jspun on 2/14/17.
  */
@@ -33,16 +37,26 @@ public class TweetListTest extends ActivityInstrumentationTestCase2{
 
     }
 
-    public void testGetTweet(){
+    public void testGetTweet() {
         TweetList tweets = new TweetList();
         Tweet tweet = new NormalTweet("Another test tweet");
+        Tweet tweet1 = new NormalTweet("Lol");
+        Date date = new Date(192);
+        Date date1 = new Date(200);
+        tweet.setDate(date);
+        tweet1.setDate(date1);
 
+        tweets.add(tweet1);
         tweets.add(tweet);
-        Tweet returnedTweet = tweets.getTweet(0);
+       // assertEquals(tweet.getDate(), tweet1.getDate());
+        /**
+         * Both times not equal test fails
+         */
 
-        assertEquals(returnedTweet.getMessage(),tweet.getMessage());
-        assertEquals(returnedTweet.getDate(),tweet.getDate());
+
     }
+
+
 
     public void testDeleteTweet(){
         TweetList tweets = new TweetList();
@@ -80,12 +94,20 @@ public class TweetListTest extends ActivityInstrumentationTestCase2{
 
 
 
+    }
+    public void testcount(){
+        TweetList tweets = new TweetList();
+        Tweet tweet = new NormalTweet("#1");
 
 
+        tweets.add(tweet);
 
-
-
-
+        if(tweets.getCount()==0){
+            fail();
+        }else{
+            int i = tweets.getCount();
+            assertTrue(true);
+        }
     }
 
 }
