@@ -9,19 +9,16 @@ import java.util.ArrayList;
 public class TweetList {
 
 
-
     private ArrayList<Tweet> tweets = new ArrayList<Tweet>();
-    int count=0;
+    int count = 0;
 
-    public void add(Tweet tweet){
+    public void add(Tweet tweet) {
 
-            if (tweets.contains(tweet)){
-                throw new IllegalArgumentException();
-            }
-            else {
-                tweets.add(tweet);
-            }
-
+        if (tweets.contains(tweet)) {
+            throw new IllegalArgumentException();
+        } else {
+            tweets.add(tweet);
+        }
 
 
     }
@@ -29,31 +26,19 @@ public class TweetList {
     public boolean hasTweet(Tweet tweet) {
 
 
+        return tweets.contains(tweet);
 
-            return tweets.contains(tweet);
-
-        }
-
+    }
 
 
-    public void delete(Tweet tweet){
+    public void delete(Tweet tweet) {
         tweets.remove(tweet);
     }
 
-    public Tweet getTweet(int index){
+    public Tweet getTweet(int index) {
         return tweets.get(index);
     }
-    public boolean duplicateTweet(Tweet tweet){
-        for (int i = 0; i < tweets.size(); i++) {
-            if (tweets.get(i) == tweet) {
-                count++;
-            }
-
-        }
-        if (count > 1) {
-            return true;
-
-        }
-
 }
+
+
 
